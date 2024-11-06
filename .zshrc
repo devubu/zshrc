@@ -284,11 +284,24 @@ alias iens3='~/Tools/Custom/Bash/info/iens3.sh'
 alias ieth0='~/Tools/Custom/Bash/info/ieth0.sh'
 alias ilo='~/Tools/Custom/Bash/info/ilo.sh'
 alias itun0='~/Tools/Custom/Bash/info/itun0.sh'
+alias iwlan0='~/Tools/Custom/Bash/info/iwlan0.sh'
 alias cw='~/Tools/Custom/Bash/symbols_and_characters/clear_whitespace.sh'
 alias cel='~/Tools/Custom/Bash/symbols_and_characters/clear_emptylines.sh'
 alias hlist='~/Tools/Custom/Bash/symbols_and_characters/horizontal_list.sh'
 alias vlist='~/Tools/Custom/Bash/symbols_and_characters/vertical_list.sh'
-
+alias sortips='~/Tools/Custom/Bash/symbols_and_characters/sortips.sh'
+alias displayips='~/Tools/Custom/Bash/symbols_and_characters/displayips.sh'
+alias revshells="~/Tools/Custom/Bash/web/revshells.sh"
+alias cyberchef="~/Tools/Custom/Bash/web/cyberchef.sh"
+alias gtfobins="~/Tools/Custom/Bash/web/gtfobins.sh"
+alias lolbas="~/Tools/Custom/Bash/web/lolbas.sh"
+alias hacktricks="~/Tools/Custom/Bash/web/hacktricks.sh"
+alias wadscom="~/Tools/Custom/Bash/web/wadcoms.sh"
+alias diffchecker="~/Tools/Custom/Bash/web/diffchecker.sh"
+alias diagrams="~/Tools/Custom/Bash/web/diagrams.sh"
+alias comment="~/Tools/Custom/Bash/symbols_and_characters/comment.sh"
+alias htb="~/Tools/Custom/Bash/tmux_sessions/htb.sh"
+alias oscp="~/Tools/Custom/Bash/tmux_sessions/oscp.sh"
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
@@ -325,4 +338,19 @@ fi
 # export $HOME/.local/bin
 if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# export PYENV_ROOT="$HOME/.pyenv
+if [ -z "$PYENV_ROOT" ]; then
+   export PYENV_ROOT="$HOME/.pyenv"
+fi
+
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+if [[ -d "$PYENV_ROOT/bin" && ":$PATH:" != *":$PYENV_ROOT/bin:"* ]]; then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+fi
+
+# eval "$(pyenv init -)
+if command -v pyenv &> /dev/null; then
+    eval "$(pyenv init -)"
 fi
