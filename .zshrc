@@ -240,6 +240,11 @@ if [ -x /usr/bin/dircolors ]; then
     zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 fi
 
+# Set up fzf key bindings and fuzzy completion
+if [ -x /usr/bin/fzf ]; then
+  source <(fzf --zsh)
+fi
+
 # some more ls aliases
 alias ll='ls -l'
 alias la='ls -A'
@@ -248,6 +253,7 @@ alias l='ls -CF'
 # custom aliases
 alias vim='nvim'
 alias cbat='batcat --paging=never'
+alias bfzf='fzf --preview="batcat --color=always {}"'
 alias claer='clear'
 alias celar='clear'
 alias clera='clear'
@@ -266,6 +272,8 @@ alias lowercase='~/Tools/Custom/Bash/symbols_and_characters/lowercase.sh'
 alias uppercase='~/Tools/Custom/Bash/symbols_and_characters/uppercase.sh'
 alias underscore='~/Tools/Custom/Bash/symbols_and_characters/underscore.sh'
 alias and='~/Tools/Custom/Bash/symbols_and_characters/and.sh'
+alias append='~/Tools/Custom/Bash/symbols_and_characters/append.sh'
+alias prepend='~/Tools/Custom/Bash/symbols_and_characters/prepend.sh'
 alias b64='~/Tools/Custom/Bash/file_encoders/b64.sh'
 alias rb64='~/Tools/Custom/Bash/file_encoders/rb64.sh'
 alias dwallpaper='~/Tools/Custom/Bash/set_wallpaper/dwallpaper.sh'
@@ -276,6 +284,7 @@ alias catcurrent='for file in *; do [ -f "$file" ] && echo "File: $(readlink -f 
 alias sudoautorecon='sudo /home/kali/.local/bin/autorecon'
 alias vr='vim results.txt'
 alias downloads='cd ~/Downloads'
+alias tools='cd ~/Tools'
 alias eh='~/Tools/Custom/Bash/info/eh.sh'
 alias ep='~/Tools/Custom/Bash/info/ep.sh'
 alias idocker0='~/Tools/Custom/Bash/info/idocker0.sh'
@@ -314,7 +323,7 @@ if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
-# export PATH=~/.npm-global/bin:$PATH 
+# export PATH=~/.npm-global/bin:$PATH
 if [[ ":$PATH:" != *":$HOME/.npm-global/bin:"* ]]; then
    export PATH="$HOME/.npm-global/bin:$PATH"
 fi
