@@ -317,6 +317,7 @@ alias diagrams="~/Tools/Custom/Bash/web/diagrams.sh"
 alias comment="~/Tools/Custom/Bash/symbols_and_characters/comment.sh"
 alias htb="~/Tools/Custom/Bash/tmux_sessions/htb.sh"
 alias oscp="~/Tools/Custom/Bash/tmux_sessions/oscp.sh"
+alias xlogout="xfce4-session-logout --logout"
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
