@@ -245,6 +245,33 @@ if [ -x /usr/bin/fzf ]; then
   source <(fzf --zsh)
 fi
 
+# custom functions
+cdfzf() {
+    if [ -n "$1" ]; then
+        selected_dir="$(fd . "$1" -a -u -t d | fzf)"
+    else
+        selected_dir="$(fd -a -u -t d | fzf)"
+    fi
+
+    [ -n "$selected_dir" ] && cd "$selected_dir"
+}
+
+lsfzf() {
+    if [ -n "$1" ]; then
+        fd . "$1" -a -u | fzf --preview 'ls -la --color=always {}' --preview-window='~4,+{2}+4/3,<80(up),wrap'
+    else
+        fd -a -u | fzf --preview 'ls -la --color=always {}' --preview-window='~4,+{2}+4/3,<80(up),wrap'
+    fi
+}
+
+llarfzf() {
+    if [ -n "$1" ]; then
+        fd . "$1" -a -u | fzf --preview 'ls -laR --color=always {}' --preview-window='~4,+{2}+4/3,<80(up),wrap'
+    else
+        fd -a -u | fzf --preview 'ls -laR --color=always {}' --preview-window='~4,+{2}+4/3,<80(up),wrap'
+    fi
+}
+
 # some more ls aliases
 alias ll='ls -l'
 alias la='ls -A'
@@ -254,6 +281,13 @@ alias l='ls -CF'
 alias vim='nvim'
 alias cbat='batcat --paging=never'
 alias bfzf='fzf --preview="batcat --color=always {}"'
+alias bfzfw='fzf --preview="batcat --color=always {}" --preview-window=wrap'
+alias cfzf='fzf --preview="cat - --color=always {}"'
+alias cfzfw='fzf --preview="cat - --color=always {}" --preview-window=wrap'
+alias vfzf='nvim "$(fzf -m --preview="batcat --color=always {}")"'
+alias vfzfs='nvim $(fzf --preview="batcat --color=always {}")'
+alias gfzf='~/Tools/Custom/Bash/search/gfzf.sh'
+alias gvfzf='~/Tools/Custom/Bash/search/gvfzf.sh'
 alias claer='clear'
 alias celar='clear'
 alias clera='clear'
