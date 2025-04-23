@@ -312,6 +312,7 @@ alias underscore='~/Tools/Custom/Bash/symbols_and_characters/underscore.sh'
 alias and='~/Tools/Custom/Bash/symbols_and_characters/and.sh'
 alias append='~/Tools/Custom/Bash/symbols_and_characters/append.sh'
 alias prepend='~/Tools/Custom/Bash/symbols_and_characters/prepend.sh'
+alias sansi='~/Tools/Custom/Bash/symbols_and_characters/strip_ansi.sh'
 alias b64='~/Tools/Custom/Bash/file_encoders/b64.sh'
 alias rb64='~/Tools/Custom/Bash/file_encoders/rb64.sh'
 alias dwallpaper='~/Tools/Custom/Bash/set_wallpaper/dwallpaper.sh'
@@ -350,9 +351,13 @@ alias virustotal="~/Tools/Custom/Bash/web/virustotal.sh"
 alias diffchecker="~/Tools/Custom/Bash/web/diffchecker.sh"
 alias diagrams="~/Tools/Custom/Bash/web/diagrams.sh"
 alias comment="~/Tools/Custom/Bash/symbols_and_characters/comment.sh"
+alias gennote="~/Tools/Custom/Bash/note_generator/gennote.sh"
+alias snmap="~/Tools/Custom/Bash/note_generator/snmap.sh"
+alias mtmux="~/Tools/Custom/Bash/tmux_sessions/mtmux.sh"
 alias htb="~/Tools/Custom/Bash/tmux_sessions/htb.sh"
 alias oscp="~/Tools/Custom/Bash/tmux_sessions/oscp.sh"
 alias xlogout="xfce4-session-logout --logout"
+alias fwm="~/Tools/Custom/Bash/window_manager/fwm.sh"
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
