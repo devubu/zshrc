@@ -248,7 +248,7 @@ fi
 # custom functions
 cdfzf() {
     if [ -n "$1" ]; then
-        selected_dir="$(fd . "$1" -a -u -t d | fzf)"
+        selected_dir="$(fd -a -u -t d . "$1" | fzf)"
     else
         selected_dir="$(fd -a -u -t d | fzf)"
     fi
@@ -256,9 +256,25 @@ cdfzf() {
     [ -n "$selected_dir" ] && cd "$selected_dir"
 }
 
+ffzf() {
+    if [ -n "$1" ]; then
+        fd -a -u -t f . "$1" | fzf --preview='batcat --color=always {}'
+    else
+        fd -a -u -t f | fzf --preview='batcat --color=always {}'
+    fi
+}
+
+dfzf() {
+    if [ -n "$1" ]; then
+        fd -a -u -t d . "$1" | fzf --preview 'ls -la --color=always {}' --preview-window='~4,+{2}+4/3,<80(up),wrap'
+    else
+        fd -a -u -t d | fzf --preview 'ls -la --color=always {}' --preview-window='~4,+{2}+4/3,<80(up),wrap'
+    fi
+}
+
 lsfzf() {
     if [ -n "$1" ]; then
-        fd . "$1" -a -u | fzf --preview 'ls -la --color=always {}' --preview-window='~4,+{2}+4/3,<80(up),wrap'
+        fd -a -u . "$1" | fzf --preview 'ls -la --color=always {}' --preview-window='~4,+{2}+4/3,<80(up),wrap'
     else
         fd -a -u | fzf --preview 'ls -la --color=always {}' --preview-window='~4,+{2}+4/3,<80(up),wrap'
     fi
@@ -266,7 +282,7 @@ lsfzf() {
 
 llarfzf() {
     if [ -n "$1" ]; then
-        fd . "$1" -a -u | fzf --preview 'ls -laR --color=always {}' --preview-window='~4,+{2}+4/3,<80(up),wrap'
+        fd -a -u . "$1" | fzf --preview 'ls -laR --color=always {}' --preview-window='~4,+{2}+4/3,<80(up),wrap'
     else
         fd -a -u | fzf --preview 'ls -laR --color=always {}' --preview-window='~4,+{2}+4/3,<80(up),wrap'
     fi
